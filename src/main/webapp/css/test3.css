@@ -1,0 +1,32 @@
+body{
+    padding:50px;
+}
+.btn-group {  
+    white-space: nowrap;              
+}
+.btn-group .btn {  
+    float: none;
+    display: inline-block;
+}
+ .btn + .dropdown-toggle { 
+    margin-left: -4px;
+}
+
+.table-responsive {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #b66802;
+    color: white;
+    font-size: 12px;
+    
+}

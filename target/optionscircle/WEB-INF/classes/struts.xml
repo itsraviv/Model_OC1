@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+ 
+    <constant name="struts.devMode" value="true" />
+ 
+    <package name="default" extends="json-default">
+		
+ 
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+ 		<action name="hello" class="com.options.action.HelloWorldAction">
+      <result name="success">/HelloWorld.jsp</result>
+    </action>
+    <action name="strikes" class="com.options.action.OptionsStrikeAction">
+      <result name="success" type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">strikeList</param>
+			</result>
+    </action>
+    <action name="expirations" class="com.options.action.OptionsExpirationsAction">
+      <result name="success" type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">expirations</param>
+			</result>
+    </action>
+    
+     <action name="tweet" class="com.options.twitter.TweetAction">
+      <result name="success">./html/ticket.html</result>
+    </action>
+    
+     <action name="askbid" class="com.options.action.OptionsAskBidPriceAction">
+      <result name="success" type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">askBid</param>
+			</result>
+    </action>
+    
+   
+ 		
+    </package>
+ 
+</struts>	

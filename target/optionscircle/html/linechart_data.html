@@ -1,0 +1,175 @@
+<html>
+<head>
+
+ 
+<script type="text/javascript">
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawBackgroundColor);
+
+function drawBackgroundColor() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Y');
+
+	  //alert("Welcome!");
+	 /* data.addRows([
+        [50,-8], [51,-8], [52,-8], [53,-8], [54,-8], [55,-8], [56,-8], [57,-8], [58,-8], [59,-8], [60,-8], [61,-8], [62,-8], [63,-8], [64,-8], [65,-8], [66,-8], [67,-8], [68,-8], [69,-8], [70,-8], [71,-8], [72,-8], [73,-8], [74,-8], [75,-8], [76,-8], [77,-8], [78,-8], [79,-8], [80,-8], [81,-8], [82,-8], [83,-8], [84,-8], [85,-8], [86,-8], [87,-8], [88,-8], [89,-8], [90,-8], [91,-8], [92,-8], [93,-8], [94,-8], [95,-8], [96,-8], [97,-8], [98,-8], [99,-8], [100,-8], [101,-4], [102,0], [103,4], [104,8], [105,12], [106,16], [107,20], [108,24], [109,28], [110,32], [111,36], [112,40], [113,44], [114,48], [115,52], [116,56], [117,60], [118,64], [119,68], [120,72], [121,76], [122,80], [123,84], [124,88], [125,92], [126,96], [127,100], [128,104], [129,108], [130,112], [131,116], [132,120], [133,124], [134,128], [135,132], [136,136], [137,140], [138,144], [139,148], [140,152], [141,156], [142,160], [143,164], [144,168], [145,172], [146,176], [147,180], [148,184], [149,188]
+      ]);*/
+/*based on the data table */
+/* row1  */
+var r1_buy_or_sell= 1;  /* buy is 1 , sell is -1) */
+var r1_call_or_put = 1;  /* call is 1 , put is 0) */
+var r1_quantity = 1;
+var r1_strike_price = 100;
+var r1_cost = 2;
+var r1_totalCost = r1_cost*r1_quantity*r1_buy_or_sell*-1;
+/* row2  */
+var r2_buy_or_sell= 1;  /* buy is 1 , sell is -1) */
+var r2_call_or_put = 1;  /* call is 1 , put is 0) */
+var r2_quantity = 1;
+var r2_strike_price = 100;
+var r2_cost = 2;
+var r2_totalCost = r2_cost*r2_quantity*r2_buy_or_sell*-1;
+
+/* row3  */
+var r3_buy_or_sell= 1;  /* buy is 1 , sell is -1) */
+var r3_call_or_put = 1;  /* call is 1 , put is 0) */
+var r3_quantity = 1;
+var r3_strike_price = 100;
+var r3_cost = 2;
+var r3_totalCost = r3_cost*r3_quantity*r3_buy_or_sell*-1;
+
+/* row4  */
+var r4_buy_or_sell= 1;  /* buy is 1 , sell is -1) */
+var r4_call_or_put = 1;  /* call is 1 , put is 0) */
+var r4_quantity = 1;
+var r4_strike_price = 100;
+var r4_cost = 2;
+var r4_totalCost = r4_cost*r4_quantity*r4_buy_or_sell*-1;
+
+var strikeRange = Math.max(r1_strike_price, r2_strike_price, r3_strike_price, r4_strike_price);
+
+//alert ("strike Range "+strikeRange);
+//alert ("total cost "+r4_totalCost);
+for (i= strikeRange*.5;i < r1_strike_price*1.5;i++){
+
+	var r1_payoff=0;
+	var r2_payoff=0;
+	var r3_payoff=0;
+	var r4_payoff=0;
+	var totalPayoff=0;
+	
+	/* calculate payoff for row1 */
+if (r1_call_or_put==1){
+	 	if(r1_quantity >0){
+			r1_payoff =Math.max(r1_totalCost,r1_quantity*(i-r1_strike_price)+r1_totalCost);
+		}
+		else{
+		    	r1_payoff=Math.min(r1_totalCost,r1_quantity*(i-r1_strike_price)+r1_totalCost);
+		}
+
+	}
+	else{
+
+	if(r1_quantity >0){
+			r1_payoff =Math.max(r1_totalCost,r1_quantity*(r1_strike_price-i)+r1_totalCost);
+		}
+		else{
+		    	r1_payoff=Math.min(r1_totalCost,r1_quantity*(r1_strike_price-i)+r1_totalCost);
+		}
+
+	}
+	/* calculate payoff for row2 */
+
+	if (r2_call_or_put==1){
+	 	if(r2_quantity >0){
+			r2_payoff =Math.max(r2_totalCost,r2_quantity*(i-r2_strike_price)+r2_totalCost);
+		}
+		else{
+		    	r2_payoff=Math.min(r2_totalCost,r2_quantity*(i-r2_strike_price)+r2_totalCost);
+		}
+
+	}
+	else{
+
+	if(r2_quantity >0){
+			r2_payoff =Math.max(r2_totalCost,r2_quantity*(r2_strike_price-i)+r2_totalCost);
+		}
+		else{
+		    	r2_payoff=Math.min(r2_totalCost,r2_quantity*(r2_strike_price-i)+r2_totalCost);
+		}
+
+	}
+/* calculate payoff for row3 */
+
+	if (r3_call_or_put==1){
+	 	if(r3_quantity >0){
+			r3_payoff =Math.max(r3_totalCost,r3_quantity*(i-r3_strike_price)+r3_totalCost);
+		}
+		else{
+		    	r3_payoff=Math.min(r3_totalCost,r3_quantity*(i-r3_strike_price)+r3_totalCost);
+		}
+
+	}
+	else{
+
+		if(r3_quantity >0){
+			r3_payoff =Math.max(r3_totalCost,r3_quantity*(r3_strike_price-i)+r3_totalCost);
+		}
+		else{
+		    	r3_payoff=Math.min(r3_totalCost,r3_quantity*(r3_strike_price-i)+r3_totalCost);
+		}
+
+	}
+/* calculate payoff for row4 */
+
+	if (r4_call_or_put==1){
+	 	if(r4_quantity >0){
+			r4_payoff =Math.max(r4_totalCost,r4_quantity*(i-r4_strike_price)+r4_totalCost);
+		}
+		else{
+		    	r4_payoff=Math.min(r4_totalCost,r4_quantity*(i-r4_strike_price)+r4_totalCost);
+		}
+
+	}
+	else{
+
+	if(r2_quantity >0){
+			r4_payoff =Math.max(r4_totalCost,r4_quantity*(r4_strike_price-i)+r4_totalCost);
+		}
+		else{
+		    	r4_payoff=Math.min(r4_totalCost,r4_quantity*(r4_strike_price-i)+r4_totalCost);
+		}
+
+	}
+totalPayoff= r1_payoff+r2_payoff+r3_payoff+r4_payoff;
+//alert(" i =>"+i);
+data.addRows([[i,totalPayoff]]);
+
+//alert("totalPayoff =>"+totalPayoff);
+}
+
+//alert("data --"+data.totalPayoff);
+/*based on the data table END */
+      
+
+      var options = {
+        hAxis: {
+          title: 'Strike'
+        },
+        vAxis: {
+          title: 'Payoff'
+        },
+        backgroundColor: '#f1f8e9'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+</script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 400px; height: 500px"></div>
+  </body>
+</html>

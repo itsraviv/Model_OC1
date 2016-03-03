@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Options Circle</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/ticket.css">
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="../js/optionsCircle.js"></script>
+
+
+</head>
+<body>
+
+	<div class="container">
+		<div>
+			<form class="form-inline" method="post">
+				<div class="well well-sm">
+					<div class="form-group">
+						<input class="form-control" type="text" id="search"
+							placeholder="Search Ticker">
+
+						<button type="button" id="submitSelection" class="btn btn-primary">Go</button>
+					</div>
+					<div style="float: right;">
+						<span class="searchBarTxtStyle">Trade Calc | Mini Pricer</span>
+						&nbsp; <span class="glyphicon glyphicon-repeat" aria-hidden="true"
+							style="color: #00A3BD"></span>
+					</div>
+				</div>
+
+
+			</form>
+			</div>
+			
+			<div>
+				<div class="well well-sm" style="float:left" id="tickerTableWrapper">
+				
+						<table style="width: auto;"
+							class="table table-condensed table-striped" id="tickerTable">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Action</th>
+									<th>Month</th>
+									<th>Strike</th>
+									<th>Call/Put</th>
+									<th>Quantity</th>
+									<th>RealTime</th>
+									<th></th>
+								</tr>
+							</thead>
+
+							<tbody id="tableBody">
+
+							</tbody>
+						</table>
+				</div>
+				
+			</div>
+			<div class="well well-sm" id="chart_div"
+					style="width: 280px; height: 280px; float:right"></div><div class="btn-group" id="buttonGroup">
+					<button type="button" class="btn btn-default" id="addRow"
+						class="btn btn-primary">Add a Leg</button>
+					<button type="button" class="btn btn-default" id="previewChart"
+						class="btn btn-primary">Show Payoff</button>
+						
+					<button type="button" class="btn btn-default" id="saveandtweetButton"
+						class="btn btn-primary">Save and Tweet</button>
+				</div>
+					
+					
+			
+		</div>
+		
+</body>
+</html>
