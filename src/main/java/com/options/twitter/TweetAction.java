@@ -38,6 +38,15 @@ public class TweetAction extends ActionSupport {
  
     private StrikeBean strikeBean;
     private String expirations;
+    private String graph;
+    
+    public String getGraph() {
+        return graph;
+    }
+ 
+    public void setGraph(String graph) {
+        this.graph = graph;
+    }
     
     public String getExpirations() {
 		return expirations;
